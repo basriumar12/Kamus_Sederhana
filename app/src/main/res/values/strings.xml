@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Kamus</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="app_first_run">run_first</string>
+    <string name="word">Words</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="english_indonesia">Search</string>
+    <string name="penjelasan">Penjelasan :</string>
+    <string name="details_word">details word</string>
+</resources>
