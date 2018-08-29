@@ -21,7 +21,6 @@ import info.and.kamus.pref.AppPref;
 import info.blogbasbas.kamus.R;
 
 public class SplachScreenActivity extends AppCompatActivity {
-
     final String TAG = LoadDataToDatabase.class.getSimpleName();
     EnglishIndonesiaHelper englishIndonesiaHelper;
     IndonesiaEnglishHelper indonesiaEnglishHelper;
@@ -47,8 +46,8 @@ public class SplachScreenActivity extends AppCompatActivity {
         protected Void doInBackground(Void... voids) {
             Boolean firstRun = appPreferences.getFirstRun();
             if(firstRun){
-                ArrayList<IngModel> kamusModels = preLoadRaw();
-                ArrayList<IndoModel> kamusIndoModels = preLoadIndoRaw();
+                ArrayList<IngModel> kamusModels = preLoadRawEnglish();
+                ArrayList<IndoModel> kamusIndoModels = preLoadRawIndo();
 
                 englishIndonesiaHelper.open();
 
@@ -94,21 +93,14 @@ public class SplachScreenActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void onProgressUpdate(Integer... values) {
-            super.onProgressUpdate(values);
-
-        }
-
-        @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             Intent i = new Intent(SplachScreenActivity.this, MainActivity.class);
             startActivity(i);
-            finish();
-        }
+            finish();}
     }
 
-    private ArrayList<IngModel> preLoadRaw() {
+    private ArrayList<IngModel> preLoadRawEnglish() {
         ArrayList<IngModel> kamusModels = new ArrayList<>();
         String line = null;
         BufferedReader reader;
@@ -129,19 +121,16 @@ public class SplachScreenActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
             Log.e("Tag","Error :"+e.getMessage());
-
         }
-        return kamusModels;
-    }
+        return kamusModels;}
 
-    private ArrayList<IndoModel> preLoadIndoRaw() {
+    private ArrayList<IndoModel> preLoadRawIndo() {
         ArrayList<IndoModel> kamusIndoModels = new ArrayList<>();
         String line = null;
         BufferedReader reader;
         try {
             Resources res = getResources();
             InputStream raw_dict = res.openRawResource(R.raw.indonesia_english);
-
             reader = new BufferedReader(new InputStreamReader(raw_dict));
             int count = 0;
             do{

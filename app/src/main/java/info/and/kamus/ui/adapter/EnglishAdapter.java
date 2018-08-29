@@ -15,9 +15,6 @@ import info.and.kamus.pojo.IngModel;
 import info.and.kamus.ui.activity.DetailsActivity;
 import info.blogbasbas.kamus.R;
 
-/**
- * Created by User on 29/08/2018.
- */
 
 public class EnglishAdapter extends RecyclerView.Adapter<EnglishAdapter.MyHolder> {
 
